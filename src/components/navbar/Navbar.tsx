@@ -1,6 +1,7 @@
 import React from 'react'
 import './navbar.sass'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import Modal from './modal/Modal';
 
 
 interface isOpen {
@@ -24,9 +25,9 @@ class Navbar extends React.Component<any, isOpen> {
         <GiHamburgerMenu size={25} className='sandwich-icon' onClick={() => this.setState((state) => ({
           isModalOpen: !state.isModalOpen
         }))} />
-        <h1>
-          {this.state.isModalOpen ? 'hi' : 'hello'}
-        </h1>
+
+        {this.state.isModalOpen && <Modal />}
+
       </div>
     )
   }
