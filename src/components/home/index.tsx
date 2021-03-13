@@ -11,9 +11,7 @@ function Home() {
       <Navbar/>
       <div className='bg-image'/>
       <HomeMore/>
-
       <Animals/>
-
     </div>
   )
 }
