@@ -30,8 +30,10 @@ function ListAnimals() {
       <div className='whitespace-circle' />
 
       <div className='animal-top-container'>
-        <img src={images[0].image} alt="image" />
-        <AnimalInfo />
+        <div className='top-inner-container'>
+          <img src={images[0].image} alt="image" />
+          <AnimalInfo />
+        </div>
       </div>
 
       <div className='list-omni-container'>

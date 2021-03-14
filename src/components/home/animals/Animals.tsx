@@ -1,6 +1,9 @@
 import React from 'react'
 import './animals.sass'
 import Gorilla from '../../../assets/images/gorilla.jpg'
+import Panda from '../../../assets/images/panda.jpg'
+import Penguin from '../../../assets/images/penguin.jpg'
+import Rhino from '../../../assets/images/rhino.jpg'
 import lionLogo from '../../../assets/images/lionLogo.png'
 
 function Animals() {
@@ -15,9 +18,9 @@ function Animals() {
 
       <div className='image-slider-desktop'>
         <img className='image1D' src={Gorilla} />
-        <img className='image2D' src={Gorilla} />
-        <img className='image3D' src={Gorilla} />
-        <img className='image4D' src={Gorilla} />
+        <img className='image2D' src={Panda} />
+        <img className='image3D' src={Penguin} /> 
+        <img className='image4D' src={Rhino} />
       </div>
     </div>
   )
