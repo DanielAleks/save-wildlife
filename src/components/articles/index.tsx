@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar';
 import './articles.sass'
+import RedPandaCartoon from '../../assets/images/redPandaCartoon.jpg'
 
 type MyState = {
   header: string
@@ -43,11 +44,14 @@ class Articles extends React.Component<AppProps, MyState> {
   render() {
     return (
       <div className='art-bg'>
-        <div className='art-tri' />
+
+        <div className='art-sidebar'>
+          <img src={RedPandaCartoon} alt="image" />
+          <button>Next Animal</button>
+        </div>
+
         <div className='art-container'>
-
           <p className='main-header'>Articles</p>
-
           {articles.map((item) =>
             <div className='art-mapped-container'>
               <p className='art-header'>{item.header}</p>

@@ -1,24 +1,9 @@
 .art-bg
-  // background: url('../../assets/images/articleBg.png')
+  background: url('../../assets/images/articleBg.png')
   background: #393939
-  height: 93vh
+  height: 100vh
   width: 100%
   background-size: cover
-// .art-tri
-//   position: absolute
-//   bottom: -15px
-//   // transform: rotate(90deg) 
-//   right: -80px
-//   transform: skew(-20deg)
-//   background: linear-gradient(246.24deg, #d69648 0%, #f0af5f 50%, #d69648 100%)
-//   border-bottom: 100px solid orange
-//   border-right: 300px solid transparent
-  // &:before
-  //   position: absolute
-  //   // top: 0 right: 0 bottom: 0 left: 0
-  //   z-index: 100
-  //   padding: 30px
-  //   background: linear-gradient(246.24deg, #d69648 0%, #f0af5f 50%, #d69648 100%)
 
 .art-container
   margin-left: 3rem
@@ -43,11 +28,58 @@
 .art-button
   width: 8rem
   height: 3rem
-  background: linear-gradient(246.24deg, #d69648 0%, #f0af5f 50%, #d69648 100%)
+  background: linear-gradient(246.24deg, #b5782f 0%, #e4a252 50%, #b5782f 100%)
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25)
   padding: 0px
   border: none
   border-radius: 9px
-  font-size: 1.15rem
-  font-family: nunito-regular
-  color: white
+  font-size: 1rem
+  font-family: Main
+  font-weight: 900
+  color: black
+
+.art-sidebar
+  img
+  button
+    @extend .art-button
+
+@media (min-width: 720px)
+  .art-bg
+    background: url('../../assets/images/articleDesktop.png')
+    background-size: cover
+    background-position: 50% 50%
+  .art-container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    height: 100vh
+    margin-left: 5rem
+  .art-mapped-container
+    margin-top: 1.2rem
+    margin-bottom: 1.2rem
+  .main-header
+    display: none
+  .art-header
+    margin-bottom: .7rem
+  .art-description
+    margin: 0px
+  .art-button
+    margin-top: 1rem
+    margin-bottom: 1rem
+  .art-sidebar
+    position: absolute
+    height: 31rem
+    width: 31rem
+    right: 3%
+    top: 30%
+    img
+      height: 80%
+      width: 80%
+      object-fit: cover
+      position: absolute
+      border-radius: 10px
+      border: 10px solid #393939
+    button
+      position: absolute
+      bottom: .5rem
+      left: 3rem
