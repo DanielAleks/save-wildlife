@@ -14,6 +14,7 @@ import Leopard from '../../assets/images/snowLeopard.jpg'
 import Turtle from '../../assets/images/turtle.jpg'
 import Whale from '../../assets/images/whale.jpg'
 import { animalsApi } from '../../ApiInfo'
+import AnimalInfo from './animal-info/AnimalInfo'
 
 function ListAnimals() {
 
@@ -26,26 +27,23 @@ function ListAnimals() {
 
   return (
     <div className='list-bg'>
+      <div className='whitespace-circle' />
 
       <div className='animal-top-container'>
-        <img className='animal-top-image' src={images[0].image} alt="image" />
-        <div>
-          <p>Information</p>
-          <p>{animalsApi[0].Name}</p>
-          <p>{animalsApi[0].Location}</p>
-          <p>{animalsApi[0].Population}</p>
-          <p>{animalsApi[0].Status}</p>
-          <p>{animalsApi[0].Description}</p>
-        </div>
+        <img src={images[0].image} alt="image" />
+        <AnimalInfo />
       </div>
 
-      <div className='list-container'>
-        {images.map((Item) =>
-          <div className='image-container'>
+      <div className='list-omni-container'>
+        <div className='bottom-orange-box' />
+        <div className='list-container'>
+          {images.map((Item) =>
+            <div className='image-container'>
               <img src={Item.image} alt="" />
               <p>{Item.name}</p>
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
 
     </div>

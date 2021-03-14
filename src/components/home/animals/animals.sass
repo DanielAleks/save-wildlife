@@ -1,11 +1,11 @@
 .animals-container
-  height: 92.5vh
+  height: 100vh
   background: url('../../../assets/images/lionBg2.png')
   width: 100%
   background-size: cover
   background-position: 50%
 
-.image-slider
+.image-slider-mobile
   display: flex
   flex-direction: column
   align-items: center
@@ -17,14 +17,43 @@
     border-radius: .5rem
     width: 13rem
 
-.image1
+.image1M
   margin-bottom: 10rem
 
-.image2
-  margin-top: 10rem 
+.image2M
+  margin-top: 10rem
+
+.image-slider-desktop
+  position: relative
+  height: 100%
+  img
+    position: absolute
+
+.image1D
+  top: 100px
+  right: 25%
+  height: 400px
+  width: 30rem
+.image2D
+  top: 50%
+  right: 0px
+  height: 400px
+  width: 30rem
+.image3D
+  bottom: 15%
+  left: 50%
+  height: 400px
+  width: 30rem
+.image4D
+  top: 50%
+  left: 0px
+  height: 400px
+  width: 30rem
 
 @media (min-width: 720px )
   .animals-container
     background: url('../../../assets/images/homeDesktop.png')
     background-size: cover
     background-position: 50%
+  .image-slider-mobile
+    display: none

@@ -8,12 +8,19 @@ function Animals() {
     <div className='animals-container'>
       <div className='top-left-tri' />
       <div className='bottom-right-tri' />
-      <div className='image-slider'>
-        <img className='image1' src={Gorilla} />
-        <img className='image2' src={Gorilla} />
+      <div className='image-slider-mobile'>
+        <img className='image1M' src={Gorilla} />
+        <img className='image2M' src={Gorilla} />
+      </div>
+
+      <div className='image-slider-desktop'>
+        <img className='image1D' src={Gorilla} />
+        <img className='image2D' src={Gorilla} />
+        <img className='image3D' src={Gorilla} />
+        <img className='image4D' src={Gorilla} />
       </div>
     </div>
   )
 }
- 
+
 export default Animals
