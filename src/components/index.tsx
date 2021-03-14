@@ -9,13 +9,15 @@ import Articles from "./articles";
 import Gallery from "./gallery";
 import Home from "./home";
 import ListAnimals from "./list-animals/ListAnimals";
+import Navbar from "./navbar/Navbar";
 import './style.sass'
 
 export default function App() {
   return (
-    <Router>
+    <Router> 
+      <Navbar/>
       <Switch>
-        <Route path="/" exact component="/">
+        <Route path="/" exact>
           <Home />
         </Route>
         <Route path="/gallery">
@@ -23,7 +25,7 @@ export default function App() {
         </Route>
         <Route path="/articles">
           <Articles />
-        </Route>
+        </Route> 
         <Route path="/animals">
           <Gallery />
         </Route>

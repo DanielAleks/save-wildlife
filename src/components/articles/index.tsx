@@ -34,18 +34,16 @@ class Articles extends React.Component<AppProps, MyState> {
   constructor(props) {
     super(props);
   }
-    // this.state = {
-    //   isSandwichOpen: false
-    // };
+  // this.state = {
+  //   isSandwichOpen: false
+  // };
 
-   
+
 
   render() {
     return (
-      <div>
-      <Navbar />
-
       <div className='art-bg'>
+        <div className='art-tri' />
         <div className='art-container'>
 
           <p className='main-header'>Articles</p>
@@ -61,9 +59,8 @@ class Articles extends React.Component<AppProps, MyState> {
           )}
         </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 }
 
 export default Articles

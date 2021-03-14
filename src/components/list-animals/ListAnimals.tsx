@@ -24,21 +24,18 @@ function ListAnimals() {
   ]
 
   return (
-    <div>
-      <Navbar />
-      <div className='list-bg'>
+    <div className='list-bg'>
 
-        <div className='list-container'>
-          {images.map((Item) =>
-            <div className='image-container'>
-              <img src={Item[1]} alt="" />
-              <img src={Item[2]} alt="" />
-              <img src={Item[3]} alt="" />
-            </div>
-          )}
-        </div>
-
+      <div className='list-container'>
+        {images.map((Item) =>
+          <div className='image-container'>
+            <img src={Item[1]} alt="" />
+            <img src={Item[2]} alt="" />
+            <img src={Item[3]} alt="" />
+          </div>
+        )}
       </div>
+
     </div>
   )
 }

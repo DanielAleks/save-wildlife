@@ -8,7 +8,6 @@ import Animals from './animals/Animals'
 function Home() {
   return (
     <div>
-      <Navbar/>
       <div className='bg-image'/>
       <HomeMore/>
       <Animals/>

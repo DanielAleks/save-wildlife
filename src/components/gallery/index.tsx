@@ -7,10 +7,11 @@ import './gallery.sass'
 function Gallery() {
   return (
     <div>
-      <Navbar />
       <GalleryImage />
 
       <div className='gallery-bg'>
+        <div className='gray-box-bg' />
+        <div className='orange-box-bg' />
         <button className='gallery-go-back'>
           <p>Go</p>
           <p>Back</p>
