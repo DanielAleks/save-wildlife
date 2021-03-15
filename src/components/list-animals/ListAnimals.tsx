@@ -31,16 +31,13 @@ class ListAnimals extends React.Component<myProps, any> {
   constructor(props) {
     super(props);
 
-    this.state = {
-
-    }
   }
 
   render() {
 
+    // const accessor = this.props.accessor
     const accessorHandler = (id) =>
       this.setState({ accessor: id })
-    const accessor = this.props.accessor
 
     return (
       <div id='top-gallery' className='list-bg'>
@@ -53,8 +50,8 @@ class ListAnimals extends React.Component<myProps, any> {
         </Link>
         <div className='animal-top-container'>
           <div className='top-inner-container'>
-            <img src={images[accessor].image} alt="image" />
-            <AnimalInfo accessor={accessor} />
+            <img src={images[this.props.accessor].image} alt="image" />
+            <AnimalInfo accessor={this.props.accessor} />
           </div>
         </div>
 

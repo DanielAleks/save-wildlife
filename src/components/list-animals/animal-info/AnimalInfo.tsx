@@ -10,9 +10,6 @@ class AnimalInfo extends React.Component<myProps, {}> {
   constructor(props) {
     super(props)
 
-    this.state = {
-
-    }
   }
 
   render() {
