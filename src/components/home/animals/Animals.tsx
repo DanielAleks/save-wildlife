@@ -8,7 +8,7 @@ import lionLogo from '../../../assets/images/lionLogo.png'
 
 function Animals() {
   return (
-    <div className='animals-container'>
+    <div id='animals' className='animals-container'>
       <div className='top-left-tri' />
       <div className='bottom-right-tri' />
       <div className='image-slider-mobile'>

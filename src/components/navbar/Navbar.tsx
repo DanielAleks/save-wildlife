@@ -50,8 +50,6 @@ class Navbar extends React.Component<any, isOpen> {
     //   }
     // }
 
-
-
     return (
       <div className='nav-container nav-bg' >
         {/* <p className='help-me'>Help Me.</p>
