@@ -47,30 +47,24 @@ export const articles = [
   }
 ]
 
-type myProps = {
-  accessor: number
-}
-
-
-class Articles extends React.Component<myProps, any> {
+class Articles extends React.Component<{}, any> {
   constructor(props) {
     super(props);
 
     this.state = {
+      accessor: 0
     };
   }
 
   render() {
 
-    const accessor = this.props.accessor
+    const accessor = this.state.accessor
     const addToAccessor = () => {
       this.setState({ accessor: accessor + 1 })
     }
 
     // const removeList = () => 
     // store.dispatch({ type: ADD_ACCESSOR })
-
-
 
     return (
       <div className='art-bg'>
@@ -79,7 +73,7 @@ class Articles extends React.Component<myProps, any> {
           <Link to="gallery" spy={true} smooth={true} offset={0} duration={500}>
             <img src={images[accessor].image} alt="image" />
           </Link>
-          <button >Next Animal</button>
+          <button onClick={addToAccessor}>Next Animal</button>
         </div>
 
         <div className='art-container'>

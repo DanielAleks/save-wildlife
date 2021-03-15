@@ -4,21 +4,13 @@ import Navbar from '../navbar/Navbar'
 import GalleryImage from './gallery-image/GalleryImage'
 import './gallery.sass'
 
-interface myProps {
-  accessor: number
-}
-
-class Gallery extends React.Component<myProps, any> {
+class Gallery extends React.Component<{}, any> {
   constructor(props) {
     super(props)
 
-    this.state = {
-
-    }
   }
 
   render() {
-    const accessor = this.props.accessor
     
     return (
       <div>

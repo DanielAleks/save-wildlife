@@ -5,12 +5,7 @@ import Tiger from '../../assets/images/tigerNew.jpg'
 import HomeMore from './more/HomeMore'
 import Animals from './animals/Animals'
 
-
-interface myProps {
-  accessor: number
-}
-
-class Home extends React.Component<myProps, any> {
+class Home extends React.Component<{}, any> {
  constructor(props) {
    super(props)
 
@@ -20,12 +15,11 @@ class Home extends React.Component<myProps, any> {
  }
  
   render() {
-    const accessor = this.props.accessor
     return (
       <div>
       <div className='bg-image'/>
       <HomeMore/>
-      <Animals accessor={accessor} />
+      <Animals />
     </div>
   )
 }

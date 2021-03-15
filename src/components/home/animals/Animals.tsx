@@ -4,19 +4,11 @@ import Gorilla from '../../../assets/images/gorilla.jpg'
 import Panda from '../../../assets/images/panda.jpg'
 import Penguin from '../../../assets/images/penguin.jpg'
 import Rhino from '../../../assets/images/rhino.jpg'
-import lionLogo from '../../../assets/images/lionLogo.png'
 
-interface myProps {
-  accessor: number
-}
-
-class Animals extends React.Component<myProps, any> {
+class Animals extends React.Component<{}, any> {
   constructor(props) {
     super(props)
 
-    this.state = {
-
-    }
   }
   render() {
 

@@ -23,19 +23,18 @@ const images = [
   { image: Penguin, name: 'Penguin' }, { image: RedPanda, name: 'Red Panda' }, { image: PolarBear, name: 'Polar Bear' }
 ]
 
-interface myProps {
-  accessor: number
-}
-
-class ListAnimals extends React.Component<myProps, any> {
+class ListAnimals extends React.Component<{}, any> {
   constructor(props) {
     super(props);
 
+    this.state = {
+      accessor: 0
+    }
   }
 
   render() {
 
-    // const accessor = this.props.accessor
+    const accesso = this.state.accessor
     const accessorHandler = (id) =>
       this.setState({ accessor: id })
 
@@ -50,8 +49,8 @@ class ListAnimals extends React.Component<myProps, any> {
         </Link>
         <div className='animal-top-container'>
           <div className='top-inner-container'>
-            <img src={images[this.props.accessor].image} alt="image" />
-            <AnimalInfo accessor={this.props.accessor} />
+            <img src={images[accesso].image} alt="image" />
+            <AnimalInfo accesso={accesso} />
           </div>
         </div>
 

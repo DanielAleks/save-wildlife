@@ -21,12 +21,13 @@ class App extends React.Component<{}, myState> {
     super(props)
 
     this.state = {
-      accessor: 0
+      accessor: 9
     }
   }
 
   render() {
 
+    console.log(this.state.accessor, "im workin HERE!!!")
     const accessor = this.state.accessor
 
     return (
@@ -34,16 +35,16 @@ class App extends React.Component<{}, myState> {
         <Navbar />
         <Switch>
           <Route path="/" exact>
-            <Home accessor={accessor}/>
+            <Home />
           </Route>
           <Route path="/gallery">
-            <ListAnimals accessor={accessor}/>
+            <ListAnimals />
           </Route>
           <Route path="/articles">
-            <Articles accessor={accessor} />
+            <Articles />
           </Route>
           <Route path="/animals">
-            <Gallery accessor={accessor}/>
+            <Gallery />
           </Route>
         </Switch>
       </Router>
