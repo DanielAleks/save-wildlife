@@ -8,9 +8,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { render } from '@testing-library/react';
 
 interface isOpen {
   isModalOpen: boolean
+  highlighted: number
 }
 
 class Navbar extends React.Component<any, isOpen> {
@@ -18,14 +20,40 @@ class Navbar extends React.Component<any, isOpen> {
     super(props);
 
     this.state = {
-      isModalOpen: false
+      isModalOpen: false,
+      highlighted: 0
     };
-
   };
 
   render() {
+
+    const hL0 = () =>
+      this.setState({ highlighted: 0 })
+    const hL1 = () =>
+      this.setState({ highlighted: 1 })
+    const hL2 = () =>
+      this.setState({ highlighted: 2 })
+
+    // const whichOne = () => {
+    //   if (this.state.highlighted === 0) {
+    //     return (
+    //       <Link>Home</Link>
+    //     )
+    //   } else if (this.state.highlighted === 1) {
+    //     return (
+    //       <Link style={{color: 'red'}}>Animals</Link>
+    //     )
+    //   } else if (this.state.highlighted === 2) {
+    //     return (
+    //       <Link>Articles</Link>
+    //     )
+    //   }
+    // }
+
+
+
     return (
-      <div className='nav-container nav-bg'>
+      <div className='nav-container nav-bg' >
         {/* <p className='help-me'>Help Me.</p>
         <GiHamburgerMenu size={25} className='sandwich-icon' onClick={() => this.setState((state) => ({
           isModalOpen: !state.isModalOpen
@@ -33,19 +61,19 @@ class Navbar extends React.Component<any, isOpen> {
 
         {this.state.isModalOpen && <Modal />} */}
 
-        <nav className='nav-container'>
-          <div>
-            <Link style={{ color: '#b56803', borderBottom: '.15rem solid #b56803' }} className='link-d' to="/">Home</Link>
+        < nav className='nav-container' >
+          <div onClick={hL0}>
+            <Link style={{ color: this.state.highlighted === 0 ? '#b56803' : '#393939', borderBottom: this.state.highlighted === 0 ? '.15rem solid #b56803' : 'none' }} className='link-d' to="/">Home</Link>
           </div>
-          <div>
-            <Link className='link-d' to="/gallery">Animals</Link>
+          <div onClick={hL1}>
+            <Link style={{ color: this.state.highlighted === 1 ? '#b56803' : '#393939', borderBottom: this.state.highlighted === 1 ? '.15rem solid #b56803' : 'none'}} className='link-d' to="/gallery">Animals</Link>
           </div>
-          <div>
-            <Link className='link-d' to="/articles">Articles</Link>
+          <div onClick={hL2}>
+            <Link style={{ color: this.state.highlighted === 2 ? '#b56803' : '#393939', borderBottom: this.state.highlighted === 2 ? '.15rem solid #b56803' : 'none'}} className='link-d' to="/articles">Articles</Link>
           </div>
         </nav>
 
-      </div>
+      </div >
     )
   }
 }

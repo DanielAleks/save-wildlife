@@ -13,7 +13,6 @@ import Rhino from '../../assets/images/rhino.jpg'
 import Leopard from '../../assets/images/snowLeopard.jpg'
 import Turtle from '../../assets/images/turtle.jpg'
 import Whale from '../../assets/images/whale.jpg'
-import { animalsApi } from '../../ApiInfo'
 import AnimalInfo from './animal-info/AnimalInfo'
 
 function ListAnimals() {
