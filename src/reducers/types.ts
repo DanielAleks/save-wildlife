@@ -1,0 +1,1 @@
+export const ADD_ACCESSOR = 'ADD_ACCESSOR'

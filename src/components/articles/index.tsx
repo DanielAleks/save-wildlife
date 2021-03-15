@@ -2,12 +2,32 @@ import React from 'react'
 import Navbar from '../navbar/Navbar';
 import './articles.sass'
 import RedPandaCartoon from '../../assets/images/redPandaCartoon.jpg'
+import Orangutan from '../../assets/images/orangutan.jpg'
+import Gorilla from '../../assets/images/gorilla.jpg'
+import Bengal from '../../assets/images/bengalTiger.jpg'
+import Elephant from '../../assets/images/elephant.jpg'
+import Panda from '../../assets/images/panda.jpg'
+import Penguin from '../../assets/images/penguin.jpg'
+import PolarBear from '../../assets/images/polarBear.jpg'
+import Rhino from '../../assets/images/rhino.jpg'
+import Leopard from '../../assets/images/snowLeopard.jpg'
+import Turtle from '../../assets/images/turtle.jpg'
+import Whale from '../../assets/images/whale.jpg'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { ADD_ACCESSOR } from '../../reducers/types';
+import configureStore from '../../store';
 
-type MyState = {
-  header: string
-  description: string
-  url: string
-}
+const images = [
+  { image: Bengal }, { image: Panda }, { image: Whale },
+  { image: Elephant }, { image: Gorilla }, { image: Leopard },
+  { image: Orangutan }, { image: Turtle }, { image: Rhino },
+  { image: Penguin }, { image: RedPandaCartoon }, { image: PolarBear }
+]
 
 export const articles = [
   {
@@ -27,27 +47,39 @@ export const articles = [
   }
 ]
 
-interface AppProps {
-  Navbar?: Navbar;
+type myProps = {
+  accessor: number
 }
 
-class Articles extends React.Component<AppProps, MyState> {
+
+class Articles extends React.Component<myProps, any> {
   constructor(props) {
     super(props);
+
+    this.state = {
+    };
   }
-  // this.state = {
-  //   isSandwichOpen: false
-  // };
-
-
 
   render() {
+
+    const accessor = this.props.accessor
+    const addToAccessor = () => {
+      this.setState({ accessor: accessor + 1 })
+    }
+
+    // const removeList = () => 
+    // store.dispatch({ type: ADD_ACCESSOR })
+
+
+
     return (
       <div className='art-bg'>
 
         <div className='art-sidebar'>
-          <img src={RedPandaCartoon} alt="image" />
-          <button>Next Animal</button>
+          <Link to="gallery" spy={true} smooth={true} offset={0} duration={500}>
+            <img src={images[accessor].image} alt="image" />
+          </Link>
+          <button >Next Animal</button>
         </div>
 
         <div className='art-container'>

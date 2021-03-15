@@ -5,14 +5,30 @@ import Tiger from '../../assets/images/tigerNew.jpg'
 import HomeMore from './more/HomeMore'
 import Animals from './animals/Animals'
 
-function Home() {
-  return (
-    <div>
+
+interface myProps {
+  accessor: number
+}
+
+class Home extends React.Component<myProps, any> {
+ constructor(props) {
+   super(props)
+
+   this.state = {
+
+   }
+ }
+ 
+  render() {
+    const accessor = this.props.accessor
+    return (
+      <div>
       <div className='bg-image'/>
       <HomeMore/>
-      <Animals/>
+      <Animals accessor={accessor} />
     </div>
   )
+}
 }
 
 export default Home 

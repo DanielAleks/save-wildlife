@@ -4,44 +4,60 @@ import Navbar from '../navbar/Navbar'
 import GalleryImage from './gallery-image/GalleryImage'
 import './gallery.sass'
 
-function Gallery() {
-  return (
-    <div>
-      <GalleryImage />
+interface myProps {
+  accessor: number
+}
 
-      <div className='gallery-bg'>
-        <div className='gray-box-bg' />
-        <div className='orange-box-bg' />
-        <button className='gallery-go-back'>
-          <p>Go</p>
-          <p>Back</p>
-        </button>
+class Gallery extends React.Component<myProps, any> {
+  constructor(props) {
+    super(props)
 
-        <div className='gallery-status'>
-          <p>Status:</p>
-          <p>{animalsApi[0].Status}</p>
-        </div>
+    this.state = {
 
-        <div className='gallery-items'>
-          <p>Species:</p>
-          <p>{animalsApi[0].Name}</p>
+    }
+  }
 
-          <div style={{}}>
-            <div>
-              <p>Location:</p>
-              <p>{animalsApi[0].Location}</p>
-            </div>
-            <div>
-              <p>Population:</p>
-              <p>{animalsApi[0].Population}</p>
-            </div>
+  render() {
+    const accessor = this.props.accessor
+    
+    return (
+      <div>
+        <GalleryImage />
+
+        <div className='gallery-bg'>
+          <div className='gray-box-bg' />
+          <div className='orange-box-bg' />
+          <button className='gallery-go-back'>
+            <p>Go</p>
+            <p>Back</p>
+          </button>
+
+          <div className='gallery-status'>
+            <p>Status:</p>
+            <p>{animalsApi[0].Status}</p>
           </div>
-          <p>Description:</p>
-          <p>{animalsApi[0].Description}</p>
+
+          <div className='gallery-items'>
+            <p>Species:</p>
+            <p>{animalsApi[0].Name}</p>
+
+            <div style={{}}>
+              <div>
+                <p>Location:</p>
+                <p>{animalsApi[0].Location}</p>
+              </div>
+              <div>
+                <p>Population:</p>
+                <p>{animalsApi[0].Population}</p>
+              </div>
+            </div>
+            <p>Description:</p>
+            <p>{animalsApi[0].Description}</p>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default Gallery
