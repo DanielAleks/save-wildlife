@@ -36,21 +36,63 @@
   right: 35%
   height: 22rem
   width: 19rem
+  animation: slide-right 15s infinite
+  animation-timing-function: cubic-bezier(0,.79,.97,.22)
 .image2D
   top: 20%
   right: 5%
   height: 27rem
   width: 20rem
+  z-index: 0
+  animation: slide-up 15s infinite
+  animation-timing-function: cubic-bezier(0,.79,.97,.22)
 .image3D
   bottom: 5%
   left: 35%
   height: 25rem
   width: 15rem
+  animation: slide-left 15s infinite
+  animation-timing-function: cubic-bezier(0,.79,.97,.22)
 .image4D
   top: 35%
   left: 5%
   height: 20rem
   width: 25rem
+  z-index: 0
+  animation: slide-down 15s infinite
+  animation-timing-function: cubic-bezier(0,.79,.97,.22)
+
+@keyframes slide-up
+  0%
+    transform: translateY(100vh)
+  70%
+    transform: translateY(-70vh)
+  100%
+    transform: translateY(-70vh)
+
+@keyframes slide-right
+  0%
+    transform: translateX(-80vw)
+  70%
+    transform: translateX(80vw)
+  100%
+    transform: translateX(80vw)
+
+@keyframes slide-down
+  0%
+    transform: translateY(-80vh)
+  70%
+    transform: translateY(80vh)
+  100%
+    transform: translateY(80vh)
+
+@keyframes slide-left
+  0%
+    transform: translateX(80vw)
+  70%
+    transform: translateX(-80vw)
+  100%
+    transform: translateX(-80vw)
 
 @media (min-width: 720px )
   .animals-container
