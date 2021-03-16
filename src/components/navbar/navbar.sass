@@ -1,5 +1,4 @@
 .nav-container
-  display: flex
   justify-content: flex-end
   align-items: center
   position: relative
@@ -18,8 +17,19 @@
 .sandwich-icon
   margin-right: 1.5rem
 
-.nav-container
+.mobile-nav-container
+  justify-content: flex-end
+  align-items: center
+  position: relative
+  z-index: 2
   display: flex
+  div
+    height: 6rem
+    align-items: center
+    margin-right: 5rem
+
+.desktop-nav-container
+  display: none
   div
     height: 6rem
     display: flex
@@ -39,6 +49,11 @@
   color: #646464
 
 @media (min-width: 720px)
+  .mobile-nav-container
+    display: none
+  .desktop-nav-container
+    display: flex
+    justify-content: flex-end
   .nav-bg
     position: absolute
     right: 0px

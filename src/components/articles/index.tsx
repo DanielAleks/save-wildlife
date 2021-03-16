@@ -77,7 +77,6 @@ class Articles extends React.Component<{}, any> {
         </div>
 
         <div className='art-container'>
-          <p className='main-header'>Articles</p>
           {articles.map((item) =>
             <div className='art-mapped-container'>
               <p className='art-header'>{item.header}</p>

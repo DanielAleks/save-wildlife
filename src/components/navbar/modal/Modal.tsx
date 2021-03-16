@@ -10,24 +10,67 @@ import ListAnimals from '../../list-animals/ListAnimals';
 import Articles from '../../articles';
 import Gallery from '../../gallery';
 import Home from '../../home';
+import { link } from 'node:fs';
 
-function Modal() {
-  return (
-    <nav className='modal-container'>
-      <div style={{ background: 'linear-gradient(246.24deg, rgb(214, 150, 72, .6) 0%, rgb(240, 175, 95, .6) 50%, rgb(214, 150, 72, .6) 100%)' }}>
-        <Link className='link-p' to="/">Home</Link>
-      </div>
-      <div>
-        <Link className='link-p' to="/animals">Animals</Link>
-      </div>
-      <div>
-        <Link className='link-p' to="/articles">Articles</Link>
-      </div>
-      <div>
-        <Link className='link-p' to="/gallery">ListAnimals</Link>
-      </div>
-    </nav>
-  )
+interface myProps {
+  highlighted: number
+  closeModal: any
+  hL0: any
+  hL1: any
+  hL2: any
+  hL3: any
+}
+
+class Modal extends React.Component<myProps, any> {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    const navlink = [
+      {
+        to: '/',
+        func: this.props.hL0,
+        number: 0,
+        name: "Home",
+      },
+      {
+        to: 'animals',
+        func: this.props.hL1,
+        number: 1,
+        name: "Animals",
+      },
+      {
+        to: 'articles',
+        func: this.props.hL2,
+        number: 2,
+        name: "Articles",
+      },
+      {
+        to: 'gallery',
+        func: this.props.hL3,
+        number: 3,
+        name: "Gallery",
+      },
+    ]
+
+    return (
+      <nav className='modal-container'>
+        {navlink.map((item) =>
+          <Link className='link-p' to={item.to}
+            onClick={() => {
+              item.func()
+              this.props.closeModal()
+            }}
+            style={{
+              background: this.props.highlighted === item.number ?
+                'linear-gradient(246.24deg, rgb(214, 150, 72, .6) 0%, rgb(240, 175, 95, .6) 50%, rgb(214, 150, 72, .6) 100%)'
+                : null
+            }}>{item.name}</Link>
+        )}
+      </nav>
+    )
+  }
 }
 
 export default Modal
