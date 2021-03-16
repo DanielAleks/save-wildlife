@@ -1,6 +1,6 @@
 .container
   width: 100%
-  height: 100%
+  height: 100vh
   display: flex
   align-items: center
   justify-content: center
@@ -32,7 +32,7 @@
   background-image: url('../../../assets/images/panda.jpg')
   width: 15rem
   height: 25rem
-  bottom: 0%
+  bottom: -10%
   left: 50%
 
 .card4
@@ -41,3 +41,15 @@
   height: 20rem
   top: 35%
   left: 10%
+
+@media ( max-width: 1300px )
+  .card1
+    width: 16rem
+    height: 19rem
+  .card2
+    width: 18rem
+    height: 23rem
+  .card3
+    width: 13rem
+    height: 22rem
+    left: 70%
