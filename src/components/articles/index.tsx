@@ -1,6 +1,4 @@
 import React from 'react'
-import Navbar from '../navbar/Navbar';
-import './articles.sass'
 import RedPandaCartoon from '../../assets/images/redPandaCartoon.jpg'
 import Orangutan from '../../assets/images/orangutan.jpg'
 import Gorilla from '../../assets/images/gorilla.jpg'
@@ -13,14 +11,8 @@ import Rhino from '../../assets/images/rhino.jpg'
 import Leopard from '../../assets/images/snowLeopard.jpg'
 import Turtle from '../../assets/images/turtle.jpg'
 import Whale from '../../assets/images/whale.jpg'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import { ADD_ACCESSOR } from '../../reducers/types';
-import configureStore from '../../store';
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import './articles.sass'
 
 const images = [
   { image: Bengal }, { image: Panda }, { image: Whale },
@@ -71,7 +63,7 @@ class Articles extends React.Component<{}, any> {
 
         <div className='art-sidebar'>
           <Link to="gallery" spy={true} smooth={true} offset={0} duration={500}>
-            <img src={images[accessor].image} alt="image" />
+            <img className='art-image' src={images[accessor].image} alt="image" />
           </Link>
           <button onClick={addToAccessor}>Next Animal</button>
         </div>
