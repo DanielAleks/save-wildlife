@@ -16,7 +16,7 @@ interface isOpen {
 }
 
 class Navbar extends React.Component<any, isOpen> {
-  constructor(props) {
+  constructor(props) { 
     super(props);
 
     this.state = {
