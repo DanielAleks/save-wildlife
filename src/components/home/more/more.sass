@@ -6,7 +6,9 @@
 .more-bg
   background: #FFF9F1
   opacity: .9
-  height: 100%
+  height: 50vh
+  position: absolute
+  z-index: 1
   width: 100%
 
 .desktop-left-bg
@@ -41,8 +43,22 @@ p
   font-size: 1rem
 
 .desktop-left-container
+  display: none
 
-@media (min-width: 720px)
+@media  ( min-width: 700px )
+  .more-content
+    display: flex
+  h1
+    font-size: 6rem
+  .more-info
+    margin-left: 3rem
+    margin-bottom: 3rem
+    p
+      width: 20rem
+  .more-button
+    margin-top: 2rem
+
+@media (min-width: 1000px)
   .more-container
     position: relative
     z-index: 1

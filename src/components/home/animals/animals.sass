@@ -19,15 +19,35 @@
 
 .image1M
   margin-bottom: 10rem
+  // animation: slide-left 5s infinite
 
 .image2M
   margin-top: 10rem
+  // animation: slide-right 5s infinite 1s forwards
+
+@keyframes slide-left
+  0%
+    transform: translateX(-75vw)
+  100%
+    transform: translateX(75vw)
+@keyframes slide-right
+  0%
+    transform: translateX(75vw)
+  100%
+    transform: translateX(-75vw)
 
 .image-slider-desktop
+  display: none
   position: relative
   height: 100%
 
-@media (min-width: 720px )
+@media (min-width: 700px)
+  .image-slider-mobile
+    img
+      height: 17rem
+      width: 17rem
+
+@media (min-width: 900px )
   .animals-container
     background: url('../../../assets/images/homeDesktop.png')
     background-size: cover
@@ -36,3 +56,5 @@
     background-position: 50%
   .image-slider-mobile
     display: none
+  .image-slider-desktop
+    display: block
