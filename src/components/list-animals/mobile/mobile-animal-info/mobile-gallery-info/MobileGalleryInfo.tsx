@@ -5,31 +5,36 @@ import './gallery-info.sass'
 function MobileGalleryInfo() {
   return (
     <div className='gallery-info-bg'>
+
+      <p className='gallery-main-header'>Information</p>
+
       <div className='gallery-items'>
 
-        <div>
+        <div className='three-main'>
           <div>
-            <p>Species:</p>
-            <p>{animalsApi[0].Name}</p>
+            <h4>Habitat:</h4>
+            <p>{animalsApi[0].Location}</p>
           </div>
           <div>
-            <p>Status:</p>
+            <h4>Population:</h4>
+            <p>{animalsApi[0].Population}</p>
+          </div>
+          <div>
+            <h4>Description:</h4>
+            <p>{animalsApi[4].Description}</p>
+          </div>
+        </div>
+
+        <div className='secondary'>
+          <div>
+            <p className='animal-name'>{animalsApi[0].Name}</p>
+          </div>
+          <div className='status'>
+            <h4>Status:</h4>
             <p>{animalsApi[0].Status}</p>
           </div>
         </div>
 
-        <div>
-          <div>
-            <p>Location:</p>
-            <p>{animalsApi[0].Location}</p>
-          </div>
-          <div>
-            <p>Population:</p>
-            <p>{animalsApi[0].Population}</p>
-          </div>
-        </div>
-        <p>Description:</p>
-        <p>{animalsApi[0].Description}</p>
       </div>
     </div>
   )
