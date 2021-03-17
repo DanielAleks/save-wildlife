@@ -3,7 +3,7 @@ import { animalsApi } from '../../../ApiInfo'
 import './animal-info.sass'
 
 interface myProps {
-  accesso: number
+  accessor: number
 }
 
 class AnimalInfo extends React.Component<myProps, any> {
@@ -14,7 +14,7 @@ class AnimalInfo extends React.Component<myProps, any> {
 
   render() {
 
-    const accessor = this.props.accesso
+    const accessor = this.props.accessor
 
     return (
       <div className='info-outer-container'>

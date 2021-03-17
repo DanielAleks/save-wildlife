@@ -34,33 +34,45 @@ class ListAnimals extends React.Component<{}, any> {
 
   render() {
 
-    const accesso = this.state.accessor
+    const accessor = this.state.accessor
     const accessorHandler = (id) =>
       this.setState({ accessor: id })
 
     return (
       <div id='top-gallery' className='list-bg'>
-        <div className='whitespace-circle' />
 
-        <Link to="bottom-gallery" className='scroll-down' spy={true} smooth={true} offset={0} duration={500}>
-          <p>Scroll</p>
-          <IoIosArrowDown size={30} />
-          <p>Down</p>
-        </Link>
-        <div className='animal-top-container'>
-          <div className='top-inner-container'>
-            <img src={images[accesso].image} alt="image" />
-            <AnimalInfo accesso={accesso} />
+        <div className='desktop-container'>
+          <div className='whitespace-circle' />
+          <Link to="bottom-gallery" className='scroll-down' spy={true} smooth={true} offset={0} duration={500}>
+            <p>Scroll</p>
+            <IoIosArrowDown size={30} />
+            <p>Down</p>
+          </Link>
+          <div className='animal-top-container'>
+            <div className='top-inner-container'>
+              <img src={images[accessor].image} alt="image" />
+              <AnimalInfo accessor={accessor} />
+            </div>
           </div>
+        </div>
+
+        <div className='mobile-container'>
+          <img src={images[accessor].image} alt="image" />
         </div>
 
         <div className='list-omni-container'>
           <div className='bottom-orange-box' />
           <div className='list-container'>
             {images.map((Item, id) =>
-              <div id='bottom-gallery' className='image-container'>
+
+              <div className='image-container' id='bottom-gallery'>
                 <Link to="top-gallery" spy={true} smooth={true} offset={0} duration={500}>
-                  <img onClick={() => accessorHandler(id)} src={Item.image} alt="image" />
+                  <img style={{
+                    height: id === 1 || id === 2 || id === 5 || id === 6 || id === 9 || id === 10 ?
+                      '16rem' : '12rem',
+                  }}
+                    onClick={() => accessorHandler(id)}
+                    src={Item.image} alt="image" />
                 </Link>
                 <p>{Item.name}</p>
               </div>
