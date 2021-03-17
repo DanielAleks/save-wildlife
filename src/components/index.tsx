@@ -6,7 +6,6 @@ import {
   Link
 } from "react-router-dom";
 import Articles from "./articles";
-import Gallery from "./list-animals/mobile-animal-info";
 import Home from "./home";
 import ListAnimals from "./list-animals/ListAnimals";
 import Navbar from "./navbar/Navbar";

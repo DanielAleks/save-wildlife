@@ -1,6 +1,4 @@
 import React from 'react'
-import './list-animals.sass'
-import { Link } from "react-scroll";
 import Orangutan from '../../assets/images/orangutan.jpg'
 import Gorilla from '../../assets/images/gorilla.jpg'
 import Bengal from '../../assets/images/bengalTiger.jpg'
@@ -13,8 +11,9 @@ import Rhino from '../../assets/images/rhino.jpg'
 import Leopard from '../../assets/images/snowLeopard.jpg'
 import Turtle from '../../assets/images/turtle.jpg'
 import Whale from '../../assets/images/whale.jpg'
-import AnimalInfo from './animal-info/AnimalInfo'
-import { IoIosArrowDown } from 'react-icons/io'
+import Gallery from './image-gallery/Gallery';
+import DesktopTopGallery from './desktop-top-container/DesktopTopGallery';
+import './list-animals.sass'
 
 const images = [
   { image: Bengal, name: 'Bengal Tiger' }, { image: Panda, name: 'Panda' }, { image: Whale, name: 'Blue Whale' },
@@ -41,44 +40,22 @@ class ListAnimals extends React.Component<{}, any> {
     return (
       <div id='top-gallery' className='list-bg'>
 
-        <div className='desktop-container'>
-          <div className='whitespace-circle' />
-          <Link to="bottom-gallery" className='scroll-down' spy={true} smooth={true} offset={0} duration={500}>
-            <p>Scroll</p>
-            <IoIosArrowDown size={30} />
-            <p>Down</p>
-          </Link>
-          <div className='animal-top-container'>
-            <div className='top-inner-container'>
-              <img src={images[accessor].image} alt="image" />
-              <AnimalInfo accessor={accessor} />
-            </div>
-          </div>
-        </div>
+        <DesktopTopGallery
+          images={images}
+          accessor={accessor}
+        />
 
         <div className='mobile-container'>
           <img src={images[accessor].image} alt="image" />
         </div>
+        <div className='white-container'></div>
 
-        <div className='list-omni-container'>
-          <div className='bottom-orange-box' />
-          <div className='list-container'> 
-            {images.map((Item, id) =>
 
-              <div className='image-container' id='bottom-gallery'>
-                <Link to="top-gallery" spy={true} smooth={true} offset={0} duration={500}>
-                  <img style={{
-                    height: id === 1 || id === 2 || id === 5 || id === 6 || id === 9 || id === 10 ?
-                      '16rem' : '12rem',
-                  }}
-                    onClick={() => accessorHandler(id)}
-                    src={Item.image} alt="image" />
-                </Link>
-                <p>{Item.name}</p>
-              </div>
-            )}
-          </div>
-        </div>
+        <Gallery
+          accessorHandler={accessorHandler}
+          images={images}
+        />
+
       </div>
     )
   }

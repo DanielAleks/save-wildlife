@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import ListAnimals from '../../list-animals/ListAnimals';
 import Articles from '../../articles';
-import Gallery from '../../list-animals/mobile-animal-info';
 import Home from '../../home';
 import { link } from 'node:fs';
 
