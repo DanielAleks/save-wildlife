@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import ListAnimals from '../../list-animals/ListAnimals';
 import Articles from '../../articles';
-import Gallery from '../../gallery';
+import Gallery from '../../list-animals/mobile-animal-info';
 import Home from '../../home';
 import { link } from 'node:fs';
 
@@ -18,7 +18,6 @@ interface myProps {
   hL0: any
   hL1: any
   hL2: any
-  hL3: any
 }
 
 class Modal extends React.Component<myProps, any> {
@@ -35,22 +34,16 @@ class Modal extends React.Component<myProps, any> {
         name: "Home",
       },
       {
-        to: 'animals',
+        to: 'gallery',
         func: this.props.hL1,
         number: 1,
-        name: "Animals",
+        name: "Gallery",
       },
       {
         to: 'articles',
         func: this.props.hL2,
         number: 2,
         name: "Articles",
-      },
-      {
-        to: 'gallery',
-        func: this.props.hL3,
-        number: 3,
-        name: "Gallery",
       },
     ]
 

@@ -33,8 +33,6 @@ class Navbar extends React.Component<any, isOpen> {
       this.setState({ highlighted: 1 })
     const hL2 = () =>
       this.setState({ highlighted: 2 })
-    const hL3 = () =>
-      this.setState({ highlighted: 3 })
     const closeModal = () =>
       this.setState({ isModalOpen: false })
 
@@ -46,7 +44,7 @@ class Navbar extends React.Component<any, isOpen> {
             isModalOpen: !state.isModalOpen
           }))} />
           {this.state.isModalOpen ? <Modal
-            hL0={hL0} hL1={hL1} hL2={hL2} hL3={hL3}
+            hL0={hL0} hL1={hL1} hL2={hL2}
             highlighted={this.state.highlighted}
             closeModal={closeModal} /> : null}
         </nav>

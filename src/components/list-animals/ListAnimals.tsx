@@ -62,7 +62,7 @@ class ListAnimals extends React.Component<{}, any> {
 
         <div className='list-omni-container'>
           <div className='bottom-orange-box' />
-          <div className='list-container'>
+          <div className='list-container'> 
             {images.map((Item, id) =>
 
               <div className='image-container' id='bottom-gallery'>

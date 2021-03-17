@@ -1,7 +1,6 @@
 import React from 'react'
-import { animalsApi } from '../../ApiInfo'
-import Navbar from '../navbar/Navbar'
-import GalleryImage from './gallery-image/GalleryImage'
+import { animalsApi } from '../../../ApiInfo'
+import Navbar from '../../navbar/Navbar'
 import './gallery.sass'
 
 class Gallery extends React.Component<{}, any> {
@@ -11,27 +10,23 @@ class Gallery extends React.Component<{}, any> {
   }
 
   render() {
-    
-    return (
-      <div>
-        <GalleryImage />
 
+    return (
         <div className='gallery-bg'>
           <div className='gray-box-bg' />
           <div className='orange-box-bg' />
-          <button className='gallery-go-back'>
-            <p>Go</p>
-            <p>Back</p>
-          </button>
 
-          <div className='gallery-status'>
-            <p>Status:</p>
-            <p>{animalsApi[0].Status}</p>
-          </div>
+
+
 
           <div className='gallery-items'>
             <p>Species:</p>
             <p>{animalsApi[0].Name}</p>
+
+            <div className='gallery-status'>
+              <p>Status:</p>
+              <p>{animalsApi[0].Status}</p>
+            </div>
 
             <div style={{}}>
               <div>
@@ -47,7 +42,6 @@ class Gallery extends React.Component<{}, any> {
             <p>{animalsApi[0].Description}</p>
           </div>
         </div>
-      </div>
     )
   }
 }
