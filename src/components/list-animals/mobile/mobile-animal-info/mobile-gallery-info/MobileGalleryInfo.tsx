@@ -13,7 +13,7 @@ function MobileGalleryInfo() {
         <div className='three-main'>
           <div>
             <h4>Habitat:</h4>
-            <p>{animalsApi[0].Location}</p>
+            <p>{animalsApi[0].Location}</p> 
           </div>
           <div>
             <h4>Population:</h4>
@@ -21,7 +21,7 @@ function MobileGalleryInfo() {
           </div>
           <div>
             <h4>Description:</h4>
-            <p>{animalsApi[4].Description}</p>
+            <p className='description'>{animalsApi[4].Description}</p>
           </div>
         </div>
 
