@@ -13,6 +13,7 @@ import Turtle from '../../assets/images/turtle.jpg'
 import Whale from '../../assets/images/whale.jpg'
 import Gallery from './image-gallery/Gallery';
 import DesktopTopGallery from './desktop-top-container/DesktopTopGallery';
+import MobileGalleryInfo from './mobile/mobile-animal-info/mobile-gallery-info/MobileGalleryInfo'
 import './list-animals.sass'
 
 const images = [
@@ -38,7 +39,7 @@ class ListAnimals extends React.Component<{}, any> {
       this.setState({ accessor: id })
 
     return (
-      <div id='top-gallery' className='list-bg'>
+      <div className='list-bg' id='top-gallery'>
 
         <DesktopTopGallery
           images={images}
@@ -48,15 +49,15 @@ class ListAnimals extends React.Component<{}, any> {
         <div className='mobile-container'>
           <img src={images[accessor].image} alt="image" />
         </div>
-        <div className='white-container'></div>
 
+        <MobileGalleryInfo />
 
         <Gallery
           accessorHandler={accessorHandler}
           images={images}
         />
 
-      </div>
+      </div >
     )
   }
 }
