@@ -17,7 +17,8 @@ class Gallery extends React.Component<any, any> {
       <div className='list-omni-container'>
         <div className='bottom-orange-box' />
         <div className='list-container'>
-          <p className='gallery-clickable-header'>Gallery</p>
+          <Link className='gallery-clickable-header'
+            to="bottom-gallery" spy={true} smooth={true} offset={0} duration={500}>Gallery</Link>
           {this.props.images.map((Item, id) =>
 
             <div className='image-container' id='bottom-gallery'>

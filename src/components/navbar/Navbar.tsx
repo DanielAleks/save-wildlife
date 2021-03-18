@@ -38,7 +38,7 @@ class Navbar extends React.Component<any, isOpen> {
 
     return (
       <div className=' nav-container nav-bg' >
-        <nav style={{ background: this.state.highlighted === 1 ? 'rgba(255, 249, 241, .5)' : 'rgb(255, 249, 241)' }} className='mobile-nav-container' >
+        <nav style={{ background: this.state.highlighted === 1 ? 'rgba(255, 249, 241, .4)' : 'rgb(255, 249, 241)' }} className='mobile-nav-container' >
           <p className='help-me'>Help Me.</p>
           <GiHamburgerMenu size={25} className='sandwich-icon' onClick={() => this.setState((state) => ({
             isModalOpen: !state.isModalOpen
