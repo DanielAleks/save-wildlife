@@ -39,18 +39,20 @@ class ListAnimals extends React.Component<{}, any> {
       this.setState({ accessor: id })
 
     return (
-      <div className='list-bg' id='top-gallery'>
+      <div className='list-master-container' id='top-gallery'>
 
-        <DesktopTopGallery
-          images={images}
-          accessor={accessor}
-        />
+        <div className='list-bg'>
+          <DesktopTopGallery
+            images={images}
+            accessor={accessor}
+          />
+        </div>
 
         <div className='mobile-container'>
           <img src={images[accessor].image} alt="image" />
-        </div> 
+        </div>
 
-        {/* <MobileGalleryInfo /> */}
+        <MobileGalleryInfo />
 
         <Gallery
           accessorHandler={accessorHandler}
