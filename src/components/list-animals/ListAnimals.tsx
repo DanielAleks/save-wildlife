@@ -48,9 +48,9 @@ class ListAnimals extends React.Component<{}, any> {
 
         <div className='mobile-container'>
           <img src={images[accessor].image} alt="image" />
-        </div>
+        </div> 
 
-        <MobileGalleryInfo />
+        {/* <MobileGalleryInfo /> */}
 
         <Gallery
           accessorHandler={accessorHandler}

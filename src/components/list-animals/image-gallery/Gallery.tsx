@@ -22,10 +22,14 @@ class Gallery extends React.Component<any, any> {
 
             <div className='image-container' id='bottom-gallery'>
               <Link to="top-gallery" spy={true} smooth={true} offset={0} duration={500}>
-                <img style={{
+                <img className='mobile-gallery-image' style={{
                   height: id === 1 || id === 2 || id === 5 || id === 6 || id === 9 || id === 10 ?
                     '16rem' : '12rem',
                 }}
+                  onClick={() => this.props.AccessorHandler(id)}
+                  src={Item.image} alt="image" />
+
+                <img className='desktop-gallery-image'
                   onClick={() => this.props.AccessorHandler(id)}
                   src={Item.image} alt="image" />
               </Link>
