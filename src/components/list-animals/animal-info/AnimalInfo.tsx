@@ -11,7 +11,7 @@ class AnimalInfo extends React.Component<myProps, any> {
     super(props)
 
   }
-
+ 
   render() {
 
     const accessor = this.props.accessor
@@ -44,7 +44,7 @@ class AnimalInfo extends React.Component<myProps, any> {
         </div>
 
         <div className='description-container'>
-          <h4 className='description'>Description:</h4>
+          <h4 className='description-header'>Description:</h4>
           <p>{animalsApi[accessor].Description}</p>
         </div>
       </div>
