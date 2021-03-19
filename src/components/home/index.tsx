@@ -3,7 +3,11 @@ import HomeMore from './more/HomeMore'
 import Animals from './animals/Animals'
 import './home.sass'
 
-class Home extends React.Component<{}, any> {
+interface myProps {
+  images: any
+}
+
+class Home extends React.Component<myProps, any> {
  constructor(props) {
    super(props)
 
@@ -13,11 +17,13 @@ class Home extends React.Component<{}, any> {
  }
  
   render() {
+    const images = this.props.images
+
     return (
       <div>
       <div className='bg-image'/>
       <HomeMore/>
-      <Animals />
+      <Animals images={images}/>
     </div>
   )
 }

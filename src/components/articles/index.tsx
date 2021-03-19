@@ -1,25 +1,6 @@
 import React from 'react'
-import RedPandaCartoon from '../../assets/images/redPandaCartoon.jpg'
-import Orangutan from '../../assets/images/orangutan.jpg'
-import Gorilla from '../../assets/images/gorilla.jpg'
-import Bengal from '../../assets/images/bengalTiger.jpg'
-import Elephant from '../../assets/images/elephant.jpg'
-import Panda from '../../assets/images/panda.jpg'
-import Penguin from '../../assets/images/penguin.jpg'
-import PolarBear from '../../assets/images/polarBear.jpg'
-import Rhino from '../../assets/images/rhino.jpg'
-import Leopard from '../../assets/images/snowLeopard.jpg'
-import Turtle from '../../assets/images/turtle.jpg'
-import Whale from '../../assets/images/whale.jpg'
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import './articles.sass'
-
-const images = [
-  { image: Bengal }, { image: Panda }, { image: Whale },
-  { image: Elephant }, { image: Gorilla }, { image: Leopard },
-  { image: Orangutan }, { image: Turtle }, { image: Rhino },
-  { image: Penguin }, { image: RedPandaCartoon }, { image: PolarBear }
-]
 
 export const articles = [
   {
@@ -39,7 +20,11 @@ export const articles = [
   }
 ]
 
-class Articles extends React.Component<{}, any> {
+interface myProps {
+  images: any
+}
+
+class Articles extends React.Component<myProps, any> {
   constructor(props) {
     super(props);
 
@@ -50,6 +35,7 @@ class Articles extends React.Component<{}, any> {
 
   render() {
 
+    const images = this.props.images
     const accessor = this.state.accessor
     const addToAccessor = () => {
       this.setState({ accessor: accessor + 1 })
