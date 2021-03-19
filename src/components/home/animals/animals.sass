@@ -1,6 +1,6 @@
 .animals-container
-  height: 100vh
   background: url('../../../assets/images/lionBg2.png')
+  height: 100vh
   width: 100%
   background-size: cover
   background-position: 50%
@@ -8,40 +8,46 @@
 .image-slider-mobile
   display: flex
   flex-direction: column
-  align-items: center
   justify-content: center
+  align-items: center
   height: 100%
   img
-    object-fit: cover
     height: 13rem
-    border-radius: .5rem
     width: 13rem
+    object-fit: cover
+    border-radius: 10px
+    cursor: pointer
+
+body
+  overflow-x: hidden
 
 .image1M
   margin-bottom: 10rem
-  // animation: slide-left 5s infinite
-
+  animation: slide-right 10s infinite cubic-bezier(0,.76,1,.24)
 .image2M
   margin-top: 10rem
-  // animation: slide-right 5s infinite 1s forwards
+  animation: slide-left 13s infinite cubic-bezier(0,.76,1,.24)
+
+@keyframes slide-right
+  0%
+    transform: translateX(-75vw)
+  90%
+    transform: translateX(75vw)
+  100%
+    transform: translateX(75vw)
 
 @keyframes slide-left
   0%
-    transform: translateX(-75vw)
-  100%
     transform: translateX(75vw)
-@keyframes slide-right
-  0%
+  30%
     transform: translateX(75vw)
   100%
     transform: translateX(-75vw)
 
 .image-slider-desktop
   display: none
-  position: relative
-  height: 100%
 
-@media (min-width: 700px)
+@media (min-width: 720px)
   .image-slider-mobile
     img
       height: 17rem
@@ -54,7 +60,9 @@
     height: 100vh
     width: 100%
     background-position: 50%
+  .image-slider-desktop
+    display: flex
+    position: relative
+    height: 100%
   .image-slider-mobile
     display: none
-  .image-slider-desktop
-    display: block
