@@ -15,11 +15,6 @@ class DesktopTopGallery extends React.Component<any, {}> {
     super(props)
   }
 
-  setTheAccessor = () => {
-    this.props.dispatch({ type: "INCREMENT" })
-    console.log(this.props.accessor, "this better be incrementing")
-  }
-
   render() {
     const images = this.props.images
 
@@ -34,10 +29,7 @@ class DesktopTopGallery extends React.Component<any, {}> {
         <div className='animal-top-container'>
           <div className='top-inner-container'>
             <img src={images[this.props.accessor].image} alt="image" />
-            {/* <AnimalInfo accessor={accessor} /> */}
-            <button onClick={this.setTheAccessor}>
-              <p>add to accessor</p>
-            </button>
+            <AnimalInfo accessor={this.props.accessor} />
           </div>
         </div>
       </div>

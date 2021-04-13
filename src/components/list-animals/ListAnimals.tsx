@@ -3,12 +3,19 @@ import Gallery from './image-gallery/Gallery';
 import DesktopTopGallery from './desktop-top-container/DesktopTopGallery';
 import MobileGalleryInfo from './mobile/mobile-animal-info/mobile-gallery-info/MobileGalleryInfo'
 import './list-animals.sass'
+import { connect } from 'react-redux';
 
 interface myProps {
   images: any
+  dispatch: any
+  accessor: number
 }
 
 class ListAnimals extends React.Component<myProps, any> {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
 
     const images = this.props.images
@@ -22,20 +29,23 @@ class ListAnimals extends React.Component<myProps, any> {
           />
         </div>
 
-        {/* <div className='mobile-container'>
-          <img src={images[accessor].image} alt="image" />
-        </div> */}
+        <div className='mobile-container'>
+          <img src={images[this.props.accessor].image} alt="image" />
+        </div>
 
         {/* <MobileGalleryInfo /> */}
 
-        {/* <Gallery
-          accessor={accessor}
+        <Gallery
           images={images}
-        /> */}
+        />
 
       </div >
     )
   }
 }
 
-export default ListAnimals
+const mapStateToProps = state => ({
+  accessor: state.accessor
+})
+
+export default connect(mapStateToProps)(ListAnimals)
