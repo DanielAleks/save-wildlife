@@ -20,14 +20,16 @@ function Animals({ images }) {
   const dispatch = useDispatch()
   const [newAccessor, setNewAccessor]: any = useState(0)
 
-  const setTheAccessor = (newAccessor) => {
+  const setTheAccessor = () => {
     dispatch({ type: "BYID", payload: newAccessor })
   }
 
   useEffect(() => {
-    setInterval(setNewAccessor(newAccessor + 1), 5000);
-    setTheAccessor(newAccessor)
-  }, [5000]);
+    let setAccessor = setInterval(() => setNewAccessor((state) => state + 1), 5000);
+    // setTheAccessor()
+
+    return () => clearInterval(setAccessor)
+  }, []);
 
 
   return (
@@ -35,12 +37,22 @@ function Animals({ images }) {
     <div id='animals' className='animals-container'>
       <div className='image-slider-mobile'>
 
-        {/* <Route path="/articles"> */}
-        <img className='image1M' src={images[newAccessor].image} alt="image1" />
-        {/* </Route> */}
-        {/* <Route path="/gallery"> */}
-        <img className='image2M' src={images[newAccessor + 1].image} alt="image2" />
-        {/* </Route> */}
+        <Route path="/articles">
+          <img
+            onClick={() => {
+              setTheAccessor()
+              console.log(newAccessor, 'is this broken?')
+            }}
+            className='image1M' src={images[newAccessor].image} alt="image1" />
+        </Route>
+        <Route path="/gallery">
+          <img
+            onClick={() => {
+              setTheAccessor()
+              console.log(newAccessor, 'is this broken?')
+            }}
+            className='image2M' src={images[newAccessor + 1].image} alt="image2" />
+        </Route>
       </div>
 
       <div className='image-slider-desktop'>
