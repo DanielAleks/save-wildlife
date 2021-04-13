@@ -1,13 +1,13 @@
 import React from 'react'
-import { useSpring, animated } from 'react-spring'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import { useSpring, animated } from 'react-spring'
 import './parallax.sass'
 import './animals.sass'
-
+ 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 const trans1: any = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 const trans2: any = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 230}px,0)`

@@ -9,18 +9,9 @@ interface myProps {
 }
 
 class ListAnimals extends React.Component<myProps, any> {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      accessor: 0
-    }
-  }
-
   render() {
 
     const images = this.props.images
-    const accessor = this.state.accessor
 
     return (
       <div className='list-master-container' id='top-gallery'>
@@ -28,20 +19,19 @@ class ListAnimals extends React.Component<myProps, any> {
         <div className='list-bg'>
           <DesktopTopGallery
             images={images}
-            accessor={accessor}
           />
         </div>
 
-        <div className='mobile-container'>
+        {/* <div className='mobile-container'>
           <img src={images[accessor].image} alt="image" />
-        </div>
+        </div> */}
 
-        <MobileGalleryInfo />
+        {/* <MobileGalleryInfo /> */}
 
-        <Gallery
+        {/* <Gallery
           accessor={accessor}
           images={images}
-        />
+        /> */}
 
       </div >
     )

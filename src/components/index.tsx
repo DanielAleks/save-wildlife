@@ -20,6 +20,11 @@ import Rhino from '../assets/images/rhino.jpg'
 import Leopard from '../assets/images/snowLeopard1.jpg'
 import Turtle from '../assets/images/turtle.jpg'
 import Whale from '../assets/images/whale.jpg'
+import { Provider } from "react-redux";
+import { createStore } from "redux"
+// import storeConfig from "./store.ts";
+import { connect } from "react-redux";
+// import fetchContentAction from "./actions/fetchContentAction"
 import './style.sass'
 
 interface myState {
@@ -36,30 +41,48 @@ const images = [
 class App extends React.Component<{}, myState> {
   constructor(props) {
     super(props)
-
-    this.state = {
-      accessor: 9
-    }
   }
 
   render() {
 
+    const initialState = {
+      accessor: 0
+    }
+    function reducer(state = initialState, action) {
+      switch (action.type) {
+        case "INCREMENT":
+          return {
+            accessor: state.accessor + 1
+          }
+        case "BYID":
+          return {
+            accessor: state.accessor
+          }
+        default:
+          return state
+      }
+    }
+    const store = createStore(reducer)
+    store.dispatch({ type: "INCREMENT" })
+
     return (
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact>
-            <Home images={images}/>
-          </Route>
-          <Route path="/gallery">
-            <ListAnimals images={images}/>
-          </Route>
-          <Route path="/articles">
-            <Articles images={images}/>
-          </Route>
-        </Switch>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact>
+              <Home images={images} />
+            </Route>
+            <Route path="/gallery">
+              <ListAnimals images={images} />
+            </Route>
+            <Route path="/articles">
+              <Articles images={images} />
+            </Route>
+          </Switch>
+        </Router>
+      </Provider>
     );
   }
 }
-export default App
+export default App;

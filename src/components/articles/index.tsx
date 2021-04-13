@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import { connect } from 'react-redux';
 import './articles.sass'
 
 export const articles = [
@@ -22,36 +23,30 @@ export const articles = [
 
 interface myProps {
   images: any
+  accessor: number
+  dispatch: any
 }
 
 class Articles extends React.Component<myProps, any> {
   constructor(props) {
     super(props);
+  };
 
-    this.state = {
-      accessor: 0
-    };
+  incrementAccessor = () => {
+    this.props.dispatch({ type: "INCREMENT" })
   }
 
   render() {
-
     const images = this.props.images
-    const accessor = this.state.accessor
-    const addToAccessor = () => {
-      this.setState({ accessor: accessor + 1 })
-    }
-
-    // const removeList = () => 
-    // store.dispatch({ type: ADD_ACCESSOR })
 
     return (
       <div className='art-bg'>
 
         <div className='art-sidebar'>
           <Link to="gallery" spy={true} smooth={true} offset={0} duration={500}>
-            <img className='art-image' src={images[accessor].image} alt="image" />
+            <img className='art-image' src={images[this.props.accessor].image} alt="image" />
           </Link>
-          <button onClick={addToAccessor}>Next Animal</button>
+          <button onClick={this.incrementAccessor}>Next Animal</button>
         </div>
 
         <div className='art-container'>
@@ -70,4 +65,8 @@ class Articles extends React.Component<myProps, any> {
   }
 }
 
-export default Articles
+const mapStateToProps = state => ({
+  accessor: state.accessor
+})
+
+export default connect(mapStateToProps)(Articles)
