@@ -33,7 +33,7 @@ class ListAnimals extends React.Component<myProps, any> {
           <img src={images[this.props.accessor].image} alt="image" />
         </div>
 
-        {/* <MobileGalleryInfo /> */}
+        <MobileGalleryInfo />
 
         <Gallery
           images={images}

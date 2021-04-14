@@ -3,11 +3,15 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link,
+  useHistory
 } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
 import './parallax.sass'
 import './animals.sass'
 import { connect, useDispatch } from 'react-redux';
+import { GiTakeMyMoney } from 'react-icons/gi';
+import { isTemplateExpression } from 'typescript';
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 const trans1: any = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
@@ -16,54 +20,84 @@ const trans3: any = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`
 const trans4: any = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`
 
 function Animals({ images }) {
+  const history = useHistory()
   const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
   const dispatch = useDispatch()
   const [newAccessor, setNewAccessor]: any = useState(0)
 
-  const setTheAccessor = () => {
-    dispatch({ type: "BYID", payload: newAccessor })
+  const setTheAccessor = (propss) => {
+    dispatch({ type: "BYID", payload: propss })
   }
 
   useEffect(() => {
     let setAccessor = setInterval(() => setNewAccessor((state) => state + 1), 5000);
-    // setTheAccessor()
-
     return () => clearInterval(setAccessor)
   }, []);
 
+  const Hi = (myprop) => {
+    setTheAccessor(myprop)
+    history.push('gallery')
+  }
+
+  const desktopImages = [
+    {
+      style: 'card1',
+      tran: trans1,
+      propdata: images[5].id
+    },
+    {
+      style: 'card2',
+      tran: trans2,
+      propdata: images[3].id
+    },
+    {
+      style: 'card3',
+      tran: trans3,
+      propdata: images[1].id
+    },
+    {
+      style: 'card4',
+      tran: trans4,
+      propdata: images[7].id
+    }
+  ]
+
+  const mobileImages = [
+    {
+      style: "image1M",
+      propdata: images[newAccessor].id,
+      image: images[newAccessor].image
+    },
+    {
+      style: "image1M",
+      propdata: images[newAccessor + 1].id,
+      image: images[newAccessor + 1].image
+    }
+  ]
 
   return (
 
     <div id='animals' className='animals-container'>
       <div className='image-slider-mobile'>
 
-        <Route path="/articles">
-          <img
-            onClick={() => {
-              setTheAccessor()
-              console.log(newAccessor, 'is this broken?')
-            }}
-            className='image1M' src={images[newAccessor].image} alt="image1" />
-        </Route>
-        <Route path="/gallery">
-          <img
-            onClick={() => {
-              setTheAccessor()
-              console.log(newAccessor, 'is this broken?')
-            }}
-            className='image2M' src={images[newAccessor + 1].image} alt="image2" />
-        </Route>
+        {mobileImages.map((item) =>
+          <button className='button-link' onClick={() => Hi(item.propdata)}>
+            <img className={item.style} src={item.image} />
+          </button>
+        )}
+
       </div>
 
       <div className='image-slider-desktop'>
         <div className="container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-          <animated.div className="card1" style={{ transform: props.xy.interpolate(trans1) }} />
-          <animated.div className="card2" style={{ transform: props.xy.interpolate(trans2) }} />
-          <animated.div className="card3" style={{ transform: props.xy.interpolate(trans3) }} />
-          <animated.div className="card4" style={{ transform: props.xy.interpolate(trans4) }} />
+          {desktopImages.map((item, idx) =>
+            <button onClick={() => Hi(item.propdata)}>
+              <animated.div className={item.style} style={{ transform: props.xy.interpolate(item.tran) }} />
+            </button>
+          )}
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
