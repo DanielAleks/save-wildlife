@@ -34,7 +34,7 @@ function Animals({ images }) {
     return () => clearInterval(setAccessor)
   }, []);
 
-  const Hi = (myprop) => {
+  const setReduxStateHandler = (myprop) => {
     setTheAccessor(myprop)
     history.push('gallery')
   }
@@ -81,7 +81,7 @@ function Animals({ images }) {
       <div className='image-slider-mobile'>
 
         {mobileImages.map((item) =>
-          <button className='button-link' onClick={() => Hi(item.propdata)}>
+          <button className='button-link' onClick={() => setReduxStateHandler(item.propdata)}>
             <img className={item.style} src={item.image} />
           </button>
         )}
@@ -91,7 +91,7 @@ function Animals({ images }) {
       <div className='image-slider-desktop'>
         <div className="container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
           {desktopImages.map((item, idx) =>
-            <button onClick={() => Hi(item.propdata)}>
+            <button onClick={() => setReduxStateHandler(item.propdata)}>
               <animated.div className={item.style} style={{ transform: props.xy.interpolate(item.tran) }} />
             </button>
           )}

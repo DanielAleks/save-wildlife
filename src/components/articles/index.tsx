@@ -33,7 +33,9 @@ class Articles extends React.Component<myProps, any> {
   };
 
   incrementAccessor = () => {
-    this.props.dispatch({ type: "INCREMENT" })
+    if (this.props.accessor < 11) {
+      return this.props.dispatch({ type: "INCREMENT" })
+    } else return null
   }
 
   render() {
@@ -50,12 +52,12 @@ class Articles extends React.Component<myProps, any> {
         </div>
 
         <div className='art-container'>
-          {articles.map((item) =>
+          {articles.map((item, id) =>
             <div className='art-mapped-container'>
-              <p className='art-header'>{item.header}</p>
-              <p className='art-description'>{item.description}</p>
+              <p style={{ animationDelay: `${.1 + id * .1}s` }} className='art-header'>{item.header}</p>
+              <p style={{ animationDelay: `${.2 + id * .1}s` }} className='art-description'>{item.description}</p>
               <a href={item.url} target='_blank' >
-                <button className='art-button'>Go to Article</button>
+                <button style={{ animationDelay: `${.3 + id * .1}s` }} className='art-button'>Go to Article</button>
               </a>
             </div>
           )}

@@ -1,6 +1,7 @@
 import React from 'react'
 import './more.sass'
 import { Link } from "react-scroll";
+import 'aos/dist/aos.css';
 
 interface myState {
 

@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from "react-scroll";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './gallery.sass'
 
 interface myProps {
@@ -19,6 +21,8 @@ class Gallery extends React.Component<myProps, any> {
     console.log(this.props.accessor, "this better be by iding")
   }
 
+  // data-aos="fade-up"
+
   render() {
     return (
       <div className='list-omni-container'>
@@ -31,11 +35,11 @@ class Gallery extends React.Component<myProps, any> {
             to="bottom-gallery" spy={true} smooth={true} offset={0} duration={500}>Gallery</Link>
           {this.props.images.map((Item, idx) =>
 
-            <div className='image-container' id='bottom-gallery'>
+            <div data-aos="fade-up" className='image-container' id='bottom-gallery'>
               <Link to="top-gallery" spy={true} smooth={true} offset={0} duration={500}>
                 <img className='mobile-gallery-image' style={{
                   height: idx === 1 || idx === 2 || idx === 5 || idx === 6 || idx === 9 || idx === 10 ?
-                    '16rem' : '12rem', 
+                    '16rem' : '12rem',
                 }}
                   onClick={() => this.setTheAccessor(idx)}
                   src={Item.image} alt="image" />

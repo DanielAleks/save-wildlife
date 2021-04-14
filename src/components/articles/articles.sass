@@ -7,9 +7,27 @@
 .art-container
   margin-left: 3rem
   padding-top: 8rem
+
 .art-mapped-container
   margin-top: 2rem
   margin-bottom: 2rem
+
+@keyframes slide-right-article
+  0%
+    opacity: 0
+    transform: translateX(-100rem)
+  100%
+    opacity: 1
+    transform: translateX(0rem)
+
+@keyframes slide-left-nextanimal
+  0%
+    opacity: 0
+    transform: translateX(100rem) skew(-40deg)
+  100%
+    opacity: 1
+    transform: translateX(0rem) skew(0deg)
+
 .art-header
   font-size: 1.5rem
   color: #cccccc
@@ -17,10 +35,14 @@
   line-height: 30px
   margin: 0px
   width: 80%
+  opacity: 0
+  animation: slide-right-article 1s forwards
 .art-description
   font-size: 1rem
   color: #858585
   width: 85%
+  opacity: 0
+  animation: slide-right-article 1s forwards
 .art-button
   width: 8rem
   height: 3rem
@@ -33,11 +55,15 @@
   font-family: Main
   font-weight: 900
   color: black
+  opacity: 0
+  animation: slide-right-article 1s forwards
 .art-sidebar
   display: none
   img
+    animation: slide-left-nextanimal 1s forwards
   button
     @extend .art-button
+    animation: slide-left-nextanimal 1s forwards .3s
 
 @media (min-width: 600px)
   .art-container

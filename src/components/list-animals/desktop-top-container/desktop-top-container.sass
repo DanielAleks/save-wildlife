@@ -39,6 +39,14 @@
       text-align: center
       font-family: Main
 
+  .desktop-image
+    height: 30rem
+    max-width: 30rem
+    object-fit: contain
+    border-radius: 10px
+    z-index: 1
+    margin-left: 5%
+
   .top-inner-container
     display: flex
     margin-top: 5rem
@@ -49,13 +57,8 @@
     justify-content: center
     border-radius: 20px
     z-index: 1
-    img
-      height: 30rem
-      width: 30rem
-      object-fit: cover
-      border-radius: 10px
-      z-index: 1
-      margin-left: 5%
+    opacity: 0
+    animation: slide-left-topcard 1s forwards
     div
       z-index: 1
       p
@@ -64,6 +67,14 @@
         color: #c5c5c5
       h4
         color: #e6e6e6
+
+@keyframes slide-left-topcard
+  0%
+    opacity: 0
+    transform: translateX(30rem)
+  100%
+    opacity: 1
+    transform: translateX(0rem)
 
 @media (min-width: 1200px)
   .desktop-container

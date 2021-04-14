@@ -26,16 +26,22 @@ import { createStore } from "redux"
 import { connect } from "react-redux";
 // import fetchContentAction from "./actions/fetchContentAction"
 import './style.sass'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init({
+  once: true
+})
 
 interface myState {
   accessor: number
 }
 
 const images = [
-  { image: Bengal, name: 'Bengal Tiger', id: 0}, { image: Panda, name: 'Panda', id: 1}, { image: Whale, name: 'Blue Whale', id: 2},
-  { image: Elephant, name: 'Elephant', id: 3}, { image: Gorilla, name: 'Gorilla', id: 4}, { image: Leopard, name: 'Snow Leopard', id: 5},
-  { image: Orangutan, name: 'Orangutan', id: 6}, { image: Turtle, name: 'Sea Turtle', id: 7}, { image: Rhino, name: 'Rhinocerus', id: 8},
-  { image: Penguin, name: 'Penguin', id: 9}, { image: RedPanda, name: 'Red Panda', id: 10}, { image: PolarBear, name: 'Polar Bear', id: 11}
+  { image: Bengal, name: 'Bengal Tiger', id: 0 }, { image: Panda, name: 'Panda', id: 1 }, { image: Whale, name: 'Blue Whale', id: 2 },
+  { image: Elephant, name: 'Elephant', id: 3 }, { image: Gorilla, name: 'Gorilla', id: 4 }, { image: Leopard, name: 'Snow Leopard', id: 5 },
+  { image: Orangutan, name: 'Orangutan', id: 6 }, { image: Turtle, name: 'Sea Turtle', id: 7 }, { image: Rhino, name: 'Rhinocerus', id: 8 },
+  { image: Penguin, name: 'Penguin', id: 9 }, { image: RedPanda, name: 'Red Panda', id: 10 }, { image: PolarBear, name: 'Polar Bear', id: 11 }
 ]
 
 class App extends React.Component<{}, myState> {
@@ -56,12 +62,12 @@ class App extends React.Component<{}, myState> {
           }
         case "BYID":
           return {
-            accessor: 
-            action.payload,
+            accessor:
+              action.payload,
           }
         default:
           return state
-      } 
+      }
     }
     const store = createStore(reducer)
     store.dispatch({ type: "INCREMENT" })

@@ -28,7 +28,7 @@ class DesktopTopGallery extends React.Component<any, {}> {
         </Link>
         <div className='animal-top-container'>
           <div className='top-inner-container'>
-            <img src={images[this.props.accessor].image} alt="image" />
+            <img className='desktop-image' src={images[this.props.accessor].image} alt="image" />
             <AnimalInfo accessor={this.props.accessor} />
           </div>
         </div>
