@@ -51,13 +51,13 @@ class Navbar extends React.Component<any, isOpen> {
 
 
         < nav className='desktop-nav-container' >
-          <div onClick={hL0}>
+          <div style={{ animationDelay: '.1s' }} onClick={hL0}>
             <Link style={{ color: this.state.highlighted === 0 ? '#b56803' : '#393939', borderBottom: this.state.highlighted === 0 ? '.15rem solid #b56803' : 'none' }} className='link-d' to="/">Home</Link>
           </div>
-          <div onClick={hL1}>
+          <div style={{ animationDelay: '.3s' }} onClick={hL1}>
             <Link style={{ color: this.state.highlighted === 1 ? '#b56803' : '#393939', borderBottom: this.state.highlighted === 1 ? '.15rem solid #b56803' : 'none' }} className='link-d' to="/gallery">Gallery</Link>
           </div>
-          <div onClick={hL2}>
+          <div style={{ animationDelay: '.5s' }} onClick={hL2}>
             <Link style={{ color: this.state.highlighted === 2 ? '#b56803' : '#393939', borderBottom: this.state.highlighted === 2 ? '.15rem solid #b56803' : 'none' }} className='link-d' to="/articles">Articles</Link>
           </div>
         </nav>

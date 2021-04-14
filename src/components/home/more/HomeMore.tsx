@@ -18,7 +18,7 @@ class HomeMore extends React.Component<{}, myState> {
 
           <div className='desktop-left-container' >
             <div className='desktop-left-bg' />
-            <p>Help Me.</p>
+            <p className='help-me-logo'>Help Me.</p>
           </div>
 
           <div className='more-content'>

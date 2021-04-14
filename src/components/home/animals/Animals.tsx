@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   useHistory
 } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
+import { connect, useDispatch } from 'react-redux';
 import './parallax.sass'
 import './animals.sass'
-import { connect, useDispatch } from 'react-redux';
-import { GiTakeMyMoney } from 'react-icons/gi';
-import { isTemplateExpression } from 'typescript';
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 const trans1: any = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
@@ -91,7 +86,7 @@ function Animals({ images }) {
       <div className='image-slider-desktop'>
         <div className="container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
           {desktopImages.map((item, idx) =>
-            <button onClick={() => setReduxStateHandler(item.propdata)}>
+            <button className='desktop-button-link' onClick={() => setReduxStateHandler(item.propdata)}>
               <animated.div className={item.style} style={{ transform: props.xy.interpolate(item.tran) }} />
             </button>
           )}
