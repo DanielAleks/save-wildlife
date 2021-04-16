@@ -1,4 +1,4 @@
-.modal-container
+.modal-container, .modal-container-off
   height: 15rem
   width: 100%
   background: #414141
@@ -7,6 +7,16 @@
   z-index: 3
   opacity: 0
   animation: fade-in-nav .3s forwards
+
+.modal-container-off
+  opacity: 1
+  animation: fade-off-nav .3s forwards
+
+@keyframes fade-off-nav
+  0%
+    opacity: 1
+  100%
+    opacity: 0
 
 .link-p
   color: white

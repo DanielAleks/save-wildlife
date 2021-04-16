@@ -17,6 +17,7 @@ interface myProps {
   hL0: any
   hL1: any
   hL2: any
+  isModalOpen: boolean
 }
 
 class Modal extends React.Component<myProps, any> {
@@ -47,9 +48,9 @@ class Modal extends React.Component<myProps, any> {
     ]
 
     return (
-      <nav className='modal-container'>
+      <nav className={this.props.isModalOpen ? 'modal-container' : 'modal-container-off'}>
         {navlink.map((item) =>
-          <Link className='link-p' to={item.to}
+          <Link className='link-p' to={item.to} 
             onClick={() => {
               item.func()
               this.props.closeModal()
