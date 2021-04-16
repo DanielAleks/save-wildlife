@@ -25,7 +25,11 @@ function Animals({ images }) {
   }
 
   useEffect(() => {
-    let setAccessor = setInterval(() => setNewAccessor((state) => state + 1), 5000);
+    let setAccessor = setInterval(() => setNewAccessor((state) => {
+      if (state < 10) {
+        return state + 1
+      } else return state = 0
+    }), 5000)
     return () => clearInterval(setAccessor)
   }, []);
 
@@ -60,13 +64,13 @@ function Animals({ images }) {
   const mobileImages = [
     {
       style: "image1M",
-      propdata: images[newAccessor].id,
-      image: images[newAccessor].image
+      propdata: newAccessor,
+      image: newAccessor
     },
     {
-      style: "image1M",
-      propdata: images[newAccessor + 1].id,
-      image: images[newAccessor + 1].image
+      style: "image2M",
+      propdata: newAccessor + 1,
+      image: newAccessor + 1
     }
   ]
 
@@ -75,9 +79,9 @@ function Animals({ images }) {
     <div id='animals' className='animals-container'>
       <div className='image-slider-mobile'>
 
-        {mobileImages.map((item) =>
+        {mobileImages && mobileImages.map((item) =>
           <button className='button-link' onClick={() => setReduxStateHandler(item.propdata)}>
-            <img className={item.style} src={item.image} />
+            <img className={item.style} src={images[item.propdata].image} />
           </button>
         )}
 

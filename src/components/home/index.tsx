@@ -17,7 +17,7 @@ class Home extends React.Component<myProps, any> {
  }
  
   render() {
-    const images = this.props.images
+    const images: any = this.props.images
 
     return (
       <div>
