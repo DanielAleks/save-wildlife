@@ -27,7 +27,7 @@ class HomeMore extends React.Component<{}, myState> {
               <h1>Wildlife</h1>
             </header>
             <div className='more-info'>
-              <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti. </p>
+              <p>By conserving wildlife, we're ensuring that future generations can enjoy our natural world and the incredible species that live within it. Not only that, but conserving wildlife can further enrich our food in both nutrition and flavor.</p>
               <Link to="animals" spy={true} smooth={true} offset={0} duration={1500}>
                 <button className='more-button'>See More...</button>
               </Link>
